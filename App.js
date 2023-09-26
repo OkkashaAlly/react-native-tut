@@ -1,20 +1,26 @@
-import { Image, ImageBackground, Text, View } from "react-native";
+import { Image, ScrollView, Text, View } from "react-native";
 import logoImg from "./assets/adaptive-icon.png";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-  console.log("🚀 ~ file: App.js:6 ~ logoImg:", typeof logoImg);
-
   return (
     <View style={{ backgroundColor: "plum", flex: 1, padding: 60 }}>
-      {/* <Image source={logoImg} style={{ width: 300, height: 300 }} /> */}
-      {/* <Image
-        source={{ uri: "https://picsum.photos/250" }}
-        style={{ width: 250, height: 250 }}
-      /> */}
-      <ImageBackground source={logoImg} style={{flex: 1}}>
-        <Text>Hello bg img</Text>
-      </ImageBackground>
+      <ScrollView>
+        <Image source={logoImg} style={{ width: 300, height: 300 }} />
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti modi
+          possimus, neque, quas cupiditate sunt iusto cumque repudiandae animi
+          accusamus, quibusdam ad voluptate praesentium temporibus perspiciatis
+          non sequi saepe magni.
+        </Text>
+        <Text>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti modi
+          possimus, neque, quas cupiditate sunt iusto cumque repudiandae animi
+          accusamus, quibusdam ad voluptate praesentium temporibus perspiciatis
+          non sequi saepe magni.
+        </Text>
+        <Image source={logoImg} style={{ width: 300, height: 300 }} />
+      </ScrollView>
     </View>
   );
 }
