@@ -1,11 +1,15 @@
-import { Alert, Button, Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-
   return (
     <View style={styles.container}>
-      <Text>Stylesheet API</Text>
+      <View style={[styles.box, styles.lightblueBg]}>
+        <Text>Lightblue box</Text>
+      </View>
+      <View style={[styles.box, styles.lightgreenBg]}>
+        <Text>Lightgreen box</Text>
+      </View>
     </View>
   );
 }
@@ -15,5 +19,16 @@ const styles = StyleSheet.create({
     backgroundColor: "plum",
     flex: 1,
     padding: 60,
+  },
+  box: {
+    height: 100,
+    width: 100,
+    padding: 10,
+  },
+  lightblueBg: {
+    backgroundColor: "lightblue",
+  },
+  lightgreenBg: {
+    backgroundColor: "lightgreen",
   },
 });
