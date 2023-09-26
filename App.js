@@ -23,7 +23,13 @@ const styles = StyleSheet.create({
   box: {
     height: 100,
     width: 100,
-    padding: 10,
+    // padding: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 20,
+    marginVertical: 10,
+    borderWidth:2,
+    borderColor: 'red',
+    borderRadius: 10,
   },
   lightblueBg: {
     backgroundColor: "lightblue",
