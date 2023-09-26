@@ -1,16 +1,23 @@
-import { useState } from "react";
-import { ActivityIndicator, View } from "react-native";
+import { Alert, Button, View } from "react-native";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-  const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <View style={{ backgroundColor: "plum", flex: 1, padding: 60 }}>
-      <ActivityIndicator
-        size="large" // "small"
-        color="midnightblue"
-        animating={true} // false
+      <Button title="Alert" onPress={() => Alert.alert("Invalid Data!")} />
+      <Button
+        title="Alert 2"
+        onPress={() => Alert.alert("Invalid Data!", "DOB Incorrect")}
+      />
+      <Button
+        title="Alert 3"
+        onPress={() =>
+          Alert.alert("Invalid Data!", "DOB Incorrect", [
+            { text: "Cancel", onPress: () => console.log("Cancel Pressed") },
+            { text: "OK", onPress: () => console.log("OK Pressed") },
+          ])
+        }
       />
     </View>
   );
