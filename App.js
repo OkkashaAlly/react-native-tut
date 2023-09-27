@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     borderColor: "red",
     borderWidth: 2,
     flex: 1,
-    flexDirection: "row", // "row" | "column" | "row-reverse" | "column-reverse"
+    flexDirection: "column", // "row" | "column" | "row-reverse" | "column-reverse"
+    justifyContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
   },
 });
