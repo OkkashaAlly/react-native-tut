@@ -27,5 +27,8 @@ const styles = StyleSheet.create({
     flexDirection: "column", // "row" | "column" | "row-reverse" | "column-reverse"
     justifyContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
     alignItems: "stretch", // "stretch" | "flex-start" | "flex-end" | "center" | "baseline"
+    // rowGap: 10,
+    // columnGap: 10,
+    gap: 10,
   },
 });
