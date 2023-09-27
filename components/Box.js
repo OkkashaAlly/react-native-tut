@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
   box: {
     backgroundColor: "plum",
     padding: 20,
+    height: 50,
+    width: 50,
   },
   text: {
     color: "white",

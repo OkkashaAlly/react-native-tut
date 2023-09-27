@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
     marginTop: 64,
     borderColor: "red",
     borderWidth: 2,
-    flex: 1,
-    flexWrap: "nowrap", // "wrap" | "nowrap" | "wrap-reverse"
+    // flex: 1,
+    height: 100,
+    flexWrap: "wrap", // "wrap" | "nowrap" | "wrap-reverse"
+    alignContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
     flexDirection: "column", // "row" | "column" | "row-reverse" | "column-reverse"
     justifyContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
     alignItems: "stretch", // "stretch" | "flex-start" | "flex-end" | "center" | "baseline"
