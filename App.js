@@ -5,12 +5,12 @@ import Box from "./components/Box";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "lightgreen", flex: 1 }}>Box 1</Box>
-      <Box style={{ backgroundColor: "lightblue", flex: 1 }}>Box 2</Box>
-      <Box style={{ backgroundColor: "pink", flex: 3 }}>Box 3</Box>
-      <Box style={{ backgroundColor: "plum" }}>Box 4</Box>
+      <Box style={{ backgroundColor: "lightgreen" }}>Box 1</Box>
+      <Box style={{ backgroundColor: "lightblue" }}>Box 2</Box>
+      <Box style={{ backgroundColor: "pink" }}>Box 3</Box>
+      {/* <Box style={{ backgroundColor: "plum" }}>Box 4</Box>
       <Box style={{ backgroundColor: "skyblue" }}>Box 5</Box>
-      <Box style={{ backgroundColor: "violet" }}>Box 6</Box>
+      <Box style={{ backgroundColor: "violet" }}>Box 6</Box> */}
     </View>
   );
 }
@@ -21,5 +21,6 @@ const styles = StyleSheet.create({
     borderColor: "red",
     borderWidth: 2,
     flex: 1,
+    flexDirection: "row", // "row" | "column" | "row-reverse" | "column-reverse"
   },
 });
