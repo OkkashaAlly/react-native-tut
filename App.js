@@ -1,35 +1,34 @@
-import { StyleSheet, View } from "react-native";
-import Box from "./components/Box";
+import { StyleSheet, Text, View, Dimensions } from "react-native";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "lightgreen", top: 75, left: 75 }}>Box 1</Box>
-      <Box style={{ backgroundColor: "lightblue" }}>Box 2</Box>
-      <Box style={{ backgroundColor: "pink" }}>Box 3</Box>
-      <Box style={{ backgroundColor: "plum", position: 'absolute', top: 100, left: 100 }}>Box 4</Box>
-      <Box style={{ backgroundColor: "skyblue" }}>Box 5</Box>
-      <Box style={{ backgroundColor: "violet" }}>Box 6</Box>
+      <View style={styles.box}>
+        <Text style={styles.text}>Welcome DImension</Text>
+      </View>
     </View>
   );
 }
 
+const { width, height } = Dimensions.get("window");
+
 const styles = StyleSheet.create({
   container: {
-    marginTop: 64,
-    borderColor: "red",
-    borderWidth: 2,
+    backgroundColor: "plum",
     flex: 1,
-    // height: 100,
-    // width: 200,
-    flexWrap: "nowrap", // "wrap" | "nowrap" | "wrap-reverse"
-    alignContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
-    flexDirection: "column", // "row" | "column" | "row-reverse" | "column-reverse"
-    justifyContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
-    alignItems: "flex-start", // "stretch" | "flex-start" | "flex-end" | "center" | "baseline"
-    // rowGap: 10,
-    // columnGap: 10,
-    // gap: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  box: {
+    backgroundColor: "lightblue",
+    padding: 20,
+    height: height > 500 ? "60%": '90%',
+    width: width > 500 ? "70%": '90%',
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 24,
+    textAlign: "center",
   },
 });
