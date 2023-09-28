@@ -5,14 +5,12 @@ import Box from "./components/Box";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "lightgreen", flexGrow: 1 }}>Box 1</Box>
-      <Box style={{ backgroundColor: "lightblue", flexGrow: 1 }}>
-        Box 2
-      </Box>
-      <Box style={{ backgroundColor: "pink", flexGrow: 1  }}>Box 3</Box>
-      <Box style={{ backgroundColor: "plum", flexGrow: 1 }}>Box 4</Box>
-      <Box style={{ backgroundColor: "skyblue", flexGrow: 1 }}>Box 5</Box>
-      <Box style={{ backgroundColor: "violet", flexGrow: 1 }}>Box 6</Box>
+      <Box style={{ backgroundColor: "lightgreen", top: 75, left: 75 }}>Box 1</Box>
+      <Box style={{ backgroundColor: "lightblue" }}>Box 2</Box>
+      <Box style={{ backgroundColor: "pink" }}>Box 3</Box>
+      <Box style={{ backgroundColor: "plum", position: 'absolute', top: 100, left: 100 }}>Box 4</Box>
+      <Box style={{ backgroundColor: "skyblue" }}>Box 5</Box>
+      <Box style={{ backgroundColor: "violet" }}>Box 6</Box>
     </View>
   );
 }
@@ -29,7 +27,7 @@ const styles = StyleSheet.create({
     alignContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "stretch"
     flexDirection: "column", // "row" | "column" | "row-reverse" | "column-reverse"
     justifyContent: "flex-start", // "flex-start" | "flex-end" | "center" | "space-between" | "space-around" | "space-evenly"
-    alignItems: "stretch", // "stretch" | "flex-start" | "flex-end" | "center" | "baseline"
+    alignItems: "flex-start", // "stretch" | "flex-start" | "flex-end" | "center" | "baseline"
     // rowGap: 10,
     // columnGap: 10,
     // gap: 10,
