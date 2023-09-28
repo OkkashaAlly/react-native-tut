@@ -1,34 +1,29 @@
-import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
+import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
-  const { width, height } = useWindowDimensions();
-
   return (
-    <View style={styles.container}>
-      <View
-        style={[
-          styles.box,
-          {
-            height: height > 500 ? "60%" : "90%",
-            width: width > 500 ? "70%" : "90%",
-          },
-        ]}
-      >
-        <Text style={[styles.text, { fontSize: width > 500 ? 50 : 24 }]}>
-          Welcome DImension
-        </Text>
+    // <SafeAreaView> for iOS or android after <StatusBar/>
+    <SafeAreaView style={styles.safeView}>
+      <View style={styles.container}>
+        <View style={styles.box}>
+          <Text style={styles.text}>Welcome DImension</Text>
+        </View>
       </View>
-    </View>
+      <StatusBar style="auto" />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeView: {
+    flex: 1,
+    backgroundColor: "plum",
+  },
   container: {
     backgroundColor: "plum",
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
   },
   box: {
     backgroundColor: "lightblue",
@@ -36,7 +31,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-
     textAlign: "center",
   },
 });
