@@ -1,16 +1,20 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import CustomButton from "./components/CustomButton/CustomButton";
 // const logoImg = require("./assets/adaptive-icon.png");
 
 export default function App() {
   return (
     // <SafeAreaView> for iOS or android after <StatusBar/>
     <SafeAreaView style={styles.safeView}>
-      <View style={styles.container}>
-        <View style={styles.box}>
-          <Text style={styles.text}>Welcome DImension</Text>
-        </View>
-      </View>
-      <StatusBar style="auto" />
+      <CustomButton onPress={() => alert("Hello World")} title="Press Me" />
+      <StatusBar style="auto" backgroundColor="plum" />
     </SafeAreaView>
   );
 }
@@ -24,13 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "plum",
     flex: 1,
     alignItems: "center",
+    paddingTop: Platform.OS === "android" ? 20 : 0,
   },
-  box: {
-    backgroundColor: "lightblue",
-    padding: 20,
-  },
-  text: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
+
 });
