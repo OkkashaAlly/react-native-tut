@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: width > 500 ? 50 : 24,
     textAlign: "center",
   },
 });
