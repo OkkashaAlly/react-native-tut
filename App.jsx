@@ -1,12 +1,12 @@
 import {
-  FlatList,
   SafeAreaView,
+  SectionList,
   StatusBar,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import pokemonList from "./data.json";
+import groupedPokemonList from "./goruped-data.json";
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
         ))}
       </ScrollView> */}
       <View style={styles.scrollView}>
-        <FlatList
+        {/* <FlatList
           data={pokemonList}
           renderItem={({ item }) => {
             return (
@@ -37,6 +37,21 @@ export default function App() {
           ListEmptyComponent={<Text>No items found</Text>}
           ListHeaderComponent={<Text style={styles.headerText}>Pokemon List</Text>}
           ListFooterComponent={<Text style={styles.footerText}>Pokemon List Footer</Text>}
+        /> */}
+        <SectionList
+          sections={groupedPokemonList}
+          renderItem={({ item }) => {
+            return (
+              <View style={styles.card}>
+                <Text>{item}</Text>
+              </View>
+            );
+          }}
+          ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+          SectionSeparatorComponent={() => <View style={{ height: 16 }} />}
+          renderSectionHeader={({ section: { type } }) => (
+            <Text >{type}</Text>
+          )}
         />
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
