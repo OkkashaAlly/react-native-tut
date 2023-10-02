@@ -1,19 +1,40 @@
-import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from "react-native";
-import pokemon from "./data.json";
+import {
+  FlatList,
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import pokemonList from "./data.json";
 
 export default function App() {
   return (
     // <SafeAreaView> for iOS or android after <StatusBar/>
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-
-      {pokemon.map(pokemon => (
-        <View key={pokemon.id} style={styles.card}>
-          <Text>{pokemon.type}</Text>
-          <Text style={styles.cardText}>{pokemon.name}</Text>
-        </View>
-      ))}
-      </ScrollView>
+      {/* <ScrollView style={styles.scrollView}>
+        {pokemonList.map(pokemon => (
+          <View key={pokemon.id} style={styles.card}>
+            <Text>{pokemon.type}</Text>
+            <Text style={styles.cardText}>{pokemon.name}</Text>
+          </View>
+        ))}
+      </ScrollView> */}
+      <View style={styles.scrollView}>
+        <FlatList
+          data={pokemonList}
+          renderItem={({ item }) => {
+            return (
+              <View style={styles.card}>
+                <Text>{item.type}</Text>
+                <Text style={styles.cardText}>{item.name}</Text>
+              </View>
+            );
+          }}
+          // horizontal
+          // keyExtractor={item => item.id.toString()}
+        />
+      </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
     </SafeAreaView>
   );
