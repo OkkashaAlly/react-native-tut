@@ -22,7 +22,7 @@ export default function App() {
       </ScrollView> */}
       <View style={styles.scrollView}>
         <FlatList
-          data={pokemonList}
+          data={[]}
           renderItem={({ item }) => {
             return (
               <View style={styles.card}>
@@ -34,6 +34,7 @@ export default function App() {
           // horizontal
           // keyExtractor={item => item.id.toString()}
           ItemSeparatorComponent={<View style={{ height: 16 }} />}
+          ListEmptyComponent={<Text>No items found</Text>}
         />
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
