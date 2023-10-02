@@ -33,6 +33,7 @@ export default function App() {
           }}
           // horizontal
           // keyExtractor={item => item.id.toString()}
+          ItemSeparatorComponent={<View style={{ height: 16 }} />}
         />
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     borderRadius: 8,
     padding: 16,
-    marginBottom: 16,
+    // marginBottom: 16,
     borderWidth: 1,
   },
   cardText: {
