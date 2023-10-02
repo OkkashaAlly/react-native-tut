@@ -22,7 +22,7 @@ export default function App() {
       </ScrollView> */}
       <View style={styles.scrollView}>
         <FlatList
-          data={[]}
+          data={pokemonList}
           renderItem={({ item }) => {
             return (
               <View style={styles.card}>
@@ -35,6 +35,8 @@ export default function App() {
           // keyExtractor={item => item.id.toString()}
           ItemSeparatorComponent={<View style={{ height: 16 }} />}
           ListEmptyComponent={<Text>No items found</Text>}
+          ListHeaderComponent={<Text style={styles.headerText}>Pokemon List</Text>}
+          ListFooterComponent={<Text style={styles.footerText}>Pokemon List Footer</Text>}
         />
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
@@ -59,5 +61,17 @@ const styles = StyleSheet.create({
   },
   cardText: {
     fontSize: 30,
+  },
+  headerText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginBottom: 16,
+  },
+  footerText: {
+    fontSize: 30,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 16,
   },
 });
