@@ -2,34 +2,27 @@ import {
   SafeAreaView,
   StatusBar,
   StyleSheet,
+  Switch,
   Text,
-  TextInput,
   View,
 } from "react-native";
 
 import { useState } from "react";
 
 export default function App() {
-  const [text, setText] = useState("");
+  const [isDarkMode, setIsDarkMode] = useState("");
 
   return (
     // <SafeAreaView> for iOS or android after <StatusBar/>
     <SafeAreaView style={styles.container}>
       <View style={styles.scrollView}>
-        <TextInput
-          style={styles.input}
-          value={text}
-          onChangeText={setText}
-          placeholder="my name here"
-          secureTextEntry={false} // -- for password
-          // keyboardType="numeric" // -- for keyboard type
-          autoCorrect={false} // -- for auto correct
-          autoCapitalize="none" // -- for auto capitalize
-        /><TextInput
-          style={[styles.input, styles.multiline]}
-          multiline
+        <Text>Dark mode</Text>
+        <Switch
+          value={isDarkMode}
+          onValueChange={() => setIsDarkMode(prevState => !prevState)}
+          trackColor={{ false: "#767577", true: "#81b0ff" }}
+          thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
         />
-        <Text> My name is {text}</Text>
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
     </SafeAreaView>
@@ -44,6 +37,9 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     paddingHorizontal: 16,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   input: {
     height: 40,
