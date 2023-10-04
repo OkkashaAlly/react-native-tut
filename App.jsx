@@ -25,6 +25,9 @@ export default function App() {
           // keyboardType="numeric" // -- for keyboard type
           autoCorrect={false} // -- for auto correct
           autoCapitalize="none" // -- for auto capitalize
+        /><TextInput
+          style={[styles.input, styles.multiline]}
+          multiline
         />
         <Text> My name is {text}</Text>
       </View>
@@ -49,5 +52,9 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     paddingHorizontal: 16,
     paddingVertical: 8,
+  },
+  multiline: {
+    height: 100,
+    textAlignVertical: "top",
   },
 });
