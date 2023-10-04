@@ -16,8 +16,17 @@ export default function App() {
     // <SafeAreaView> for iOS or android after <StatusBar/>
     <SafeAreaView style={styles.container}>
       <View style={styles.scrollView}>
-        <TextInput style={styles.input} value={text} onChangeText={setText} />
-      <Text> My name is {text}</Text>
+        <TextInput
+          style={styles.input}
+          value={text}
+          onChangeText={setText}
+          placeholder="my name here"
+          secureTextEntry={false} // -- for password
+          // keyboardType="numeric" // -- for keyboard type
+          autoCorrect={false} // -- for auto correct
+          autoCapitalize="none" // -- for auto capitalize
+        />
+        <Text> My name is {text}</Text>
       </View>
       <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
     </SafeAreaView>
