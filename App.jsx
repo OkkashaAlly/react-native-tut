@@ -1,56 +1,125 @@
+import React, { useState } from "react";
 import {
-  SafeAreaView,
-  StatusBar,
+  Button,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
   StyleSheet,
-  Switch,
   Text,
+  TextInput,
   View,
 } from "react-native";
 
-import { useState } from "react";
+const LoginForm = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
-export default function App() {
-  const [isDarkMode, setIsDarkMode] = useState("");
+  const validateForm = () => {
+    let errors = {};
+
+    if (!username) errors.username = "Username is required";
+    if (!password) errors.password = "Password is required";
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if (validateForm()) {
+      console.log("Submitted", username, password);
+      setUsername("");
+      setPassword("");
+      setErrors({});
+    }
+  };
 
   return (
-    // <SafeAreaView> for iOS or android after <StatusBar/>
-    <SafeAreaView style={styles.container}>
-      <View style={styles.scrollView}>
-        <Text>Dark mode</Text>
-        <Switch
-          value={isDarkMode}
-          onValueChange={() => setIsDarkMode(prevState => !prevState)}
-          trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={isDarkMode ? "#f5dd4b" : "#f4f3f4"}
-        />
-      </View>
-      <StatusBar backgroundColor="#f5f5f5" barStyle="dark-content" />
-    </SafeAreaView>
+    <ScrollView>
+      <KeyboardAvoidingView
+        behavior="padding"
+        keyboardVerticalOffset={Platform.OS === "ios" ? 100 : 0}
+        style={styles.container}
+      >
+        <View style={styles.form}>
+          <Image
+            source={require("./assets/adaptive-icon.png")}
+            style={{
+              width: 200,
+              height: 400,
+              alignSelf: "center",
+              marginBottom: 50,
+            }}
+          />
+          <Text style={styles.label}>Username</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your username"
+            value={username}
+            onChangeText={setUsername}
+          />
+          {errors.username ? (
+            <Text style={styles.errorText}>{errors.username}</Text>
+          ) : null}
+
+          <Text style={styles.label}>Password</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your password"
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
+          {errors.password ? (
+            <Text style={styles.errorText}>{errors.password}</Text>
+          ) : null}
+
+          <Button title="Login" onPress={handleSubmit} />
+        </View>
+      </KeyboardAvoidingView>
+    </ScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 20,
     backgroundColor: "#f5f5f5",
   },
-  scrollView: {
-    flex: 1,
-    paddingHorizontal: 16,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+  form: {
+    backgroundColor: "#ffffff",
+    padding: 20,
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  label: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontWeight: "bold",
   },
   input: {
     height: 40,
-    borderColor: "gray",
+    borderColor: "#ddd",
     borderWidth: 1,
-    borderRadius: 4,
-    paddingHorizontal: 16,
-    paddingVertical: 8,
+    marginBottom: 15,
+    padding: 10,
+    borderRadius: 5,
   },
-  multiline: {
-    height: 100,
-    textAlignVertical: "top",
+  errorText: {
+    color: "red",
+    marginBottom: 10,
   },
 });
+
+export default LoginForm;
