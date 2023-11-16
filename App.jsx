@@ -1,33 +1,19 @@
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import "react-native-gesture-handler";
-import DashboardScreen from "./screens/DashboardScreen";
+import CourseListScreen from "./screens/CourseListScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import SettingsScreen from "./screens/SettingsScreen";
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function () {
+export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator
-        screenOptions={{
-          drawerActiveTintColor: "green",
-          drawerActiveBackgroundColor: "lightgreen",
-          drawerContentStyle: {
-            backgroundColor: "lightblue",
-          },
-        }}
-      >
-        <Drawer.Screen
-          name="Dashboard"
-          component={DashboardScreen}
-          options={{
-            title: "My Dashboard",
-            drawerLabel: "Dashboard label",
-          }}
-        />
-        <Drawer.Screen name="Settings" component={SettingsScreen} />
-      </Drawer.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen name="CourseList" component={CourseListScreen} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
